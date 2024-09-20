@@ -45,7 +45,8 @@ struct FruitCardView: View {
         }
         .frame(maxHeight: .infinity)
         .background(
-            LinearGradient(colors: fruit.gradientColors, startPoint: .top, endPoint: .bottom))
+            fruitGradientBoxColor(with: fruit.gradientColors)
+        )
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(.horizontal, 20)
         .onAppear {
@@ -57,5 +58,5 @@ struct FruitCardView: View {
 }
 
 #Preview {
-    FruitCardView(fruit: fruitsData[1])
+    FruitCardView(fruit: fruitPreview)
 }
