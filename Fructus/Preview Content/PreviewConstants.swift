@@ -6,3 +6,5 @@
 //
 
 let fruitPreview: Fruit = fruitsData[1]
+
+let fruitsPreview: [Fruit] = Array(fruitsData[0..<3])

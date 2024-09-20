@@ -11,11 +11,11 @@ struct OnboardingView: View {
     
     // MARK: - Properties
     
-    var fruits: [Fruit] = fruitsData
+    var fruits: [Fruit] = Array(fruitsData[0...5])
     
     var body: some View {
         TabView {
-            ForEach(fruits[0...5]) { fruit in
+            ForEach(fruits) { fruit in
                 FruitCardView(fruit: fruit)
             }
         }
@@ -25,5 +25,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(fruits: fruitsPreview)
 }
