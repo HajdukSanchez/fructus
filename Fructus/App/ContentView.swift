@@ -12,6 +12,7 @@ struct ContentView: View {
     // MARK: - Properties
     
     var fruits: [Fruit] = fruitsData
+    @State private var showSettingsSheet: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -22,9 +23,20 @@ struct ContentView: View {
                     FruitRowView(fruit: item)
                         .padding(.vertical, 4)
                 }
-
             }
             .navigationTitle("Fruits")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSettingsSheet = true
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                    }
+                    .sheet(isPresented: $showSettingsSheet) {
+                        SettingsView()
+                    }
+                }
+            }
         }
     }
 }
