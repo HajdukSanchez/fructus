@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct FructusApp: App {
+    
+    // MARK: - Properties
+    
+    @AppStorage(AppStoragekeys.showOnboarding) var showOnboarding: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+            if showOnboarding {
+                OnboardingView()
+            } else {
+                ContentView()
+            }
         }
     }
 }
