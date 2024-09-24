@@ -32,6 +32,18 @@ struct SettingsView: View {
                     } label: {
                         SettingsLabelView(labelText: "Fructus", labelImage: "info.circle")
                     }
+                    
+                    GroupBox {
+                        SettingsRowView(name: "Developer", content: "Jozek Hajduk")
+                        SettingsRowView(name: "Designer", content: "Robert Petras")
+                        SettingsRowView(name: "Compatibility", content: "iOS 14")
+                        SettingsRowView(name: "Website", label: "SwiftUI Masterclass", destination: URL(string: "https://swiftuimasterclass.com")!)
+                        SettingsRowView(name: "Twitter", label: "@hajduksanchez", destination: URL(string: "https://x.com/hajduksanchez")!)
+                        SettingsRowView(name: "SwiftUi", content: "2.0")
+                        SettingsRowView(name: "Version", content: "1.1.0")
+                    } label: {
+                        SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
+                    }
                 }
                 .padding()
                 .navigationTitle("Settings")
