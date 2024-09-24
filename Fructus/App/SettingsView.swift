@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    // MARK: - Presentation
+    // MARK: - Properties
     
     @Environment(\.dismiss) private var dismiss
     
