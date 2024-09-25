@@ -14,38 +14,34 @@ struct FruitDetailView: View {
     var fruit: Fruit
     
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical) {
-                VStack(alignment: .center, spacing: 20) {
-                    FruitHeaderView(fruit: fruit)
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(fruit.title)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .foregroundStyle(fruit.gradientColors[1])
-                        Text(fruit.headline)
-                            .font(.headline)
-                            .multilineTextAlignment(.leading)
-                        FruitNutrientsView(fruit: fruit)
-                        Text("Learn more about \(fruit.title)".uppercased())
-                            .bold()
-                            .foregroundStyle(fruit.gradientColors[1])
-                        Text(fruit.description)
-                            .multilineTextAlignment(.leading)
-                        SourceLinkView()
-                            .padding(.top, 10)
-                            .padding(.bottom, 40)
-                    }
-                    .padding(.horizontal, 20)
-                    .frame(maxWidth: 640, alignment: .center)
+        ScrollView(.vertical) {
+            VStack(alignment: .center, spacing: 20) {
+                FruitHeaderView(fruit: fruit)
+                VStack(alignment: .leading, spacing: 20) {
+                    Text(fruit.title)
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundStyle(fruit.gradientColors[1])
+                    Text(fruit.headline)
+                        .font(.headline)
+                        .multilineTextAlignment(.leading)
+                    FruitNutrientsView(fruit: fruit)
+                    Text("Learn more about \(fruit.title)".uppercased())
+                        .bold()
+                        .foregroundStyle(fruit.gradientColors[1])
+                    Text(fruit.description)
+                        .multilineTextAlignment(.leading)
+                    SourceLinkView()
+                        .padding(.top, 10)
+                        .padding(.bottom, 40)
                 }
-                .navigationTitle(fruit.title)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar(.hidden)
+                .padding(.horizontal, 20)
+                .frame(maxWidth: 640, alignment: .center)
             }
-            .scrollIndicators(.hidden)
-            .ignoresSafeArea(.container, edges: .top)
         }
+        .scrollIndicators(.hidden)
+        .ignoresSafeArea(.container, edges: .top)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

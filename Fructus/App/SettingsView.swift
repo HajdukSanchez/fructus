@@ -12,6 +12,7 @@ struct SettingsView: View {
     // MARK: - Properties
     
     @Environment(\.dismiss) private var dismiss
+    @AppStorage(AppStoragekeys.showOnboarding) var showOnboarding: Bool = false
     
     var body: some View {
         NavigationView {
@@ -31,6 +32,33 @@ struct SettingsView: View {
                         }
                     } label: {
                         SettingsLabelView(labelText: "Fructus", labelImage: "info.circle")
+                    }
+                    
+                    GroupBox {
+                        Divider()
+                            .padding(.vertical, 4)
+                        Text("If you wish you can restart the application by toogle the swtichin this box. That way it starts the onboarding process and you will see the welcome screen again.")
+                            .padding(.vertical, 8)
+                            .frame(minHeight: 60)
+                            .layoutPriority(1) // Tell system to render all the text, without truncate it
+                            .font(.footnote)
+                            .multilineTextAlignment(.leading)
+                        Toggle(isOn: $showOnboarding) {
+                            if showOnboarding {
+                                Text("Restarted")
+                                    .bold()
+                                    .foregroundStyle(.green)
+                            } else {
+                                Text("Restart")
+                                    .bold()
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding()
+                        .background(Color(UIColor.tertiarySystemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    } label: {
+                        SettingsLabelView(labelText: "Customization", labelImage: "paintbrush")
                     }
                     
                     GroupBox {
